@@ -21,6 +21,7 @@
 		j.async=true;j.src='../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);})
 		(window,document,'script','_gtmDataLayer','GTM-542MMSL');</script>
 <style>
+    /* Barra nera fissa in alto */
     #top-wa-bar {
         position: fixed;
         top: 0;
@@ -31,41 +32,51 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        padding: 0 25px;
-        z-index: 1000000;
+        padding: 0 20px;
+        z-index: 1000001; /* Sopra tutto */
         box-sizing: border-box;
     }
+    
     #top-wa-bar a {
         display: flex;
         align-items: center;
         text-decoration: none;
-    }
-    #top-wa-bar svg {
-        width: 35px;
-        height: 35px;
-        fill: #25D366;
-    }
-    /* Spostiamo il corpo della pagina verso il basso */
-    body {
-        padding-top: 60px !important;
-    }
-    /* Spostiamo la navbar sticky di Webnode per non farla finire sotto la barra nera */
-    .wnd-nav-sticky, 
-    .s-hn-sidebar,
-    header.l-h {
-        top: 60px !important;
+        transition: transform 0.2s;
     }
     
+    #top-wa-bar a:hover {
+        transform: scale(1.1);
+    }
+
+    #top-wa-bar svg {
+        width: 38px;
+        height: 38px;
+        fill: #25D366;
+    }
+
+    /* Spostiamo il corpo della pagina per fare spazio alla barra */
+    body {
+        padding-top: 60px !important;
+        margin: 0 !important;
+    }
+
+    /* Rimuoviamo lo spazio bianco e attacchiamo la navbar Webnode alla barra nera */
+    .wnd-nav-sticky, 
+    header.l-h,
+    #wnd_NavlineSection_navline_906264 {
+        top: 60px !important;
+        margin-top: 0 !important;
+    }
+
+    /* Assicuriamoci che i controlli di scorrimento (frecce) rimangano visibili e cliccabili */
+    .scrollup, .scrolldown {
+        z-index: 1000000 !important;
+    }
+
     @media screen and (max-width: 600px) {
-        #top-wa-bar {
-            height: 50px;
-        }
-        body {
-            padding-top: 50px !important;
-        }
-        .wnd-nav-sticky, .s-hn-sidebar, header.l-h {
-            top: 50px !important;
-        }
+        #top-wa-bar { height: 50px; }
+        body { padding-top: 50px !important; }
+        .wnd-nav-sticky, header.l-h { top: 50px !important; }
     }
 </style>
 </head>
